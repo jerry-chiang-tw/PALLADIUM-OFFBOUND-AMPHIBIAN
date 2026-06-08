@@ -1,10 +1,10 @@
-// PALLADIUM 鞋款科技資料庫 (同步優化坐標)
+// PALLADIUM 鞋款科技資料庫 (中心點座標依據 4:5 比例與最新校正同步優化)
 const featuresData = {
     'waterproof': {
         title: '防水機能 WP+',
         desc: '內層搭載大廠級防水科技薄膜 (Membrane)，不僅能強力阻絕外部雨水滲入，更能排除鞋內濕氣。無論面對都市暴雨或戶外水窪，都能安心著用，保持雙腳全天候絕對乾爽。',
-        origin: '34% 55%', 
-        scale: 2.0         
+        origin: '34% 55%', // 點擊時放大的視覺核心坐標
+        scale: 2.0         // 放大倍率
     },
     'midsole': {
         title: '輕量舒適 EVA 中底',
@@ -27,7 +27,7 @@ const featuresData = {
     'lacelock': {
         title: 'LACE LOCK 快速鞋帶系統',
         desc: '配備專為戶外運動設計的快速抽繩鞋帶扣，一拉即緊、一按即鬆。免去傳統傳統綁鞋帶、鞋帶鬆脫的困擾，讓都市與戶外的切換穿脫更加快速便利。',
-        origin: '45% 48%',
+        origin: '45% 34%', // 已優化放大聚焦中心點
         scale: 2.0
     },
     'heel-tape': {
@@ -72,7 +72,7 @@ hotspots.forEach(hotspot => {
     });
 });
 
-// 還原初始畫面狀態
+// 還原初始畫面状態
 function resetStage() {
     shoeStage.style.transform = 'scale(1)';
     bottomSheet.classList.remove('active');
